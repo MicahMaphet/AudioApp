@@ -6,8 +6,8 @@ type TailProps = {
 
 const Tail = (props: TailProps) => {
   return (
-     <View>
-      <Text style={styles.tail}>{props.title}</Text>
+     <View style={{borderWidth: 3}}>
+      <Text style={{fontSize: 30}}>{props.title}</Text>
       <Image source={require('../assets/images/book.png')} />
     </View>
   );
@@ -19,7 +19,6 @@ export default function Index() {
       style={{
         flex: 1,
         justifyContent: "center",
-        alignItems: "center",
       }}
     >
       <ScrollView>
@@ -31,9 +30,3 @@ export default function Index() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  tail: {
-    fontSize: 30
-  }
-});
