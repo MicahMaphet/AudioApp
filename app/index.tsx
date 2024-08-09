@@ -1,17 +1,5 @@
 import { Text, View, Image, ScrollView, StyleSheet } from "react-native";
-
-type TailProps = {
-  title: string,
-}
-
-const Tail = (props: TailProps) => {
-  return (
-     <View style={{borderWidth: 3}}>
-      <Text style={{fontSize: 30}}>{props.title}</Text>
-      <Image source={require('../assets/images/book.png')} />
-    </View>
-  );
-}
+import Tail from './Tail';
 
 export default function Index() {
   return (
@@ -25,7 +13,14 @@ export default function Index() {
         <Tail title="Story A"></Tail>
         <Tail title="Story B"></Tail>
         <Tail title="Story C"></Tail>
-        <Tail title="Bunny Story"></Tail>
+        <Tail title="Bunny Story" 
+            description="This is a story about a bunny that does things. 
+            He is not a very nice bunny and needs to do a thing a thing a thing. 
+            1234567890abcdefghijklmnopqrstuvwxyz1234567890abcdefg-hijklmnopqrstuvwxyz.
+            1234567890abcdefghijklmnopqrstuvwxyz1234567890abcdefg-hijklmnopqrstuvwxyz.
+            1234567890abcdefghijklmnopqrstuvwxyz1234567890abcdefg-hijklmnopqrstuvwxyz.
+            1234567890abcdefghijklmnopqrstuvwxyz1234567890abcdefg-hijklmnopqrstuvwxyz.
+            "></Tail>
       </ScrollView>
     </View>
   );
