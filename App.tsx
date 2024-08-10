@@ -14,7 +14,7 @@ const App = () => {
           component={AudioList} />
         <Stack.Screen
           name="AudioItem"
-          component={AudioItem}/>
+          component={AudioItem} />
       </Stack.Navigator>
     </NavigationContainer>
   );
