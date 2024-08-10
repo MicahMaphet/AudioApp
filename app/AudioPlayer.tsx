@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import React, { useState, useEffect, Component } from 'react';
+import { View, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { Audio } from 'expo-av';
+import Feather from 'react-native-vector-icons/Feather'
 
 const AudioPlayer: React.FC = () => {
   const [sound, setSound] = useState<Audio.Sound | null>(null);
@@ -27,14 +28,6 @@ const AudioPlayer: React.FC = () => {
     }
   };
 
-  const togglePlayback = () => {
-    if (isPlaying) {
-      pauseSound();
-    } else {
-      playSound();
-    }
-  };
-
   useEffect(() => {
     return sound
       ? () => {
@@ -43,18 +36,25 @@ const AudioPlayer: React.FC = () => {
       : undefined;
   }, [sound]);
 
-  return (
-    <View style={styles.container}>
-      <Button title={isPlaying ? "Pause" : "Play"} onPress={togglePlayback} />
-    </View>
-  );
+
+  if (isPlaying) {
+    return (
+      <TouchableOpacity onPress={pauseSound}>
+        <Feather name="pause" style={styles.button}/>
+      </TouchableOpacity>
+    );
+  } else {
+    return (
+      <TouchableOpacity onPress={playSound}>
+      <Feather name="play" style={styles.button}/>
+    </TouchableOpacity>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  button: {
+    fontSize: 30,
   },
 });
 
