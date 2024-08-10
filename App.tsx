@@ -1,5 +1,5 @@
 import { Text, View, Image, ScrollView, StyleSheet } from "react-native";
-import Tail from './Tail';
+import Tail from './app/Tail';
 
 export default function Index() {
   return (
