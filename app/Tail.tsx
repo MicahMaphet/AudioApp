@@ -1,19 +1,12 @@
 
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
+import { useNavigation } from './screens/AudioList';
 
-type TailProps = {
-  title: string,
-  description?: string,
-  imageUri?: string,
-}
-
-function openTail() {
-  console.log('TODO: open tail page');
-}
-
-export default function Tail(props: TailProps) {  
+export default function Tail(props: TailProps) {
+  const navigation = useNavigation();
+  console.log('From tail:');  
   return (
-    <Pressable style={styles.container} onPress={openTail}>
+    <Pressable style={styles.container} onPress={() => openTail(navigation)}>
       <Image source={require('../assets/images/book.png')} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{props.title}</Text>
@@ -22,6 +15,19 @@ export default function Tail(props: TailProps) {
     </Pressable>
   );
 };
+
+type TailProps = {
+  title: string,
+  description?: string,
+  imageUri?: string,
+}
+
+function openTail(navigation: any) {
+  if (navigation) {
+    navigation.navigate('AudioItem');
+  }
+  console.log('navigation was not defined in tail');
+}
 
 const styles = StyleSheet.create({
   container: {

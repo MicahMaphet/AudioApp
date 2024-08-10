@@ -1,27 +1,22 @@
-import { Text, View, Image, ScrollView, StyleSheet } from "react-native";
-import Tail from './app/Tail';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import AudioList from "./app/screens/AudioList";
+import AudioItem from "./app/screens/AudioItem";
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-      }}
-    >
-      <ScrollView>
-        <View style={{flexDirection: "row"}}>
-          <Tail title="Story A"></Tail>
-          <Tail title="Story B"></Tail>
-        </View>
-        <Tail title="Story C"></Tail>
-        <Tail title="Banana"></Tail>
-        <Tail title="Bunny Story" 
-            description="This is a story about a bunny that does things. 
-            He is not a very nice bunny and needs to do a thing a thing a thing. 
-            "></Tail>
-      </ScrollView>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="AudioList"
+          component={AudioList} />
+        <Stack.Screen
+          name="AudioItem"
+          component={AudioItem}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
