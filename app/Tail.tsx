@@ -1,5 +1,6 @@
 
 import { View, Text, Image, StyleSheet, } from 'react-native';
+import AudioPlayer from './AudioPlayer';
 
 type TailProps = {
   title: string,
@@ -7,7 +8,7 @@ type TailProps = {
   imageUri?: string,
 }
 
-export default function Tail(props: TailProps) {
+export default function Tail(props: TailProps) {  
   return (
     <View style={styles.container}>
       <Image source={require('../assets/images/book.png')} style={styles.image} />
@@ -15,6 +16,7 @@ export default function Tail(props: TailProps) {
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.description}>{props.description ? props.description : 'No Description'}</Text>
       </View>
+      <AudioPlayer></AudioPlayer>
     </View>
   );
 };
