@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Component } from 'react';
-import { View, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Button, StyleSheet, Pressable } from 'react-native';
 import { Audio } from 'expo-av';
 import Feather from 'react-native-vector-icons/Feather'
 
@@ -39,15 +39,15 @@ const AudioPlayer: React.FC = () => {
 
   if (isPlaying) {
     return (
-      <TouchableOpacity onPress={pauseSound}>
+      <Pressable onPress={pauseSound}>
         <Feather name="pause" style={styles.button}/>
-      </TouchableOpacity>
+      </Pressable>
     );
   } else {
     return (
-      <TouchableOpacity onPress={playSound}>
+      <Pressable onPress={playSound}>
       <Feather name="play" style={styles.button}/>
-    </TouchableOpacity>
+    </Pressable>
     );
   }
 };

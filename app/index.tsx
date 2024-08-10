@@ -10,8 +10,10 @@ export default function Index() {
       }}
     >
       <ScrollView>
-        <Tail title="Story A"></Tail>
-        <Tail title="Story B"></Tail>
+        <View style={{flexDirection: "row"}}>
+          <Tail title="Story A"></Tail>
+          <Tail title="Story B"></Tail>
+        </View>
         <Tail title="Story C"></Tail>
         <Tail title="Banana"></Tail>
         <Tail title="Bunny Story" 
