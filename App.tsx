@@ -1,7 +1,7 @@
 import { Text, View, Image, ScrollView, StyleSheet } from "react-native";
 import Tail from './app/Tail';
 
-export default function App() {
+const App = () => {
   return (
     <View
       style={{
@@ -22,3 +22,5 @@ export default function App() {
     </View>
   );
 }
+
+export default App;
