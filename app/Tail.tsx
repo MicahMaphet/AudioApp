@@ -1,13 +1,17 @@
 
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
+import Feather from 'react-native-vector-icons/Feather'
 import { useNavigation } from './screens/AudioList';
 
 export default function Tail(props: TailProps) {
   const navigation = useNavigation();
-  console.log('From tail:');  
+
+  const imageSource = props.image ? images[props.image] : null;
   return (
     <Pressable style={styles.container} onPress={() => openTail(navigation)}>
-      <Image source={require('../assets/images/book.png')} style={styles.image} />
+      {props.image 
+      ? <Image source={imageSource} style={styles.image} />
+      : <Feather name='book-open' style={styles.image}/>}
       <View style={styles.textContainer}>
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.description}>{props.description ? props.description : 'No Description'}</Text>
@@ -16,10 +20,15 @@ export default function Tail(props: TailProps) {
   );
 };
 
+const images = {
+  'book.png': require('../assets/images/book.png'),
+  'icon.png': require('../assets/images/icon.png'),
+};
+
 type TailProps = {
   title: string,
   description?: string,
-  imageUri?: string,
+  image?: 'book.png' | 'icon.png',
 }
 
 function openTail(navigation: any) {
@@ -39,9 +48,9 @@ const styles = StyleSheet.create({
     width: 300,
   },
   image: {
+    fontSize:80,
     width: 100,
     height: 100,
-    borderRadius: 30, // Optional, for circular images
     marginRight: 10,
   },
   textContainer: {

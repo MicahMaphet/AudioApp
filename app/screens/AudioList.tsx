@@ -14,12 +14,12 @@ const AudioList = ({navigation}: AudioListProps) => {
             <ScrollView>
                 <NavigationContext.Provider value={navigation}>
                     <View style={{flexDirection: "row"}}>
-                        <Tail title="Story A"></Tail>
+                        <Tail title="Story A" image='book.png'></Tail>
                         <Tail title="Story B"></Tail>
                     </View>
                     <View style={{flexDirection: "row"}}>
                         <Tail title="Story C"></Tail>
-                        <Tail title="Banana"></Tail>
+                        <Tail title="Banana" image='icon.png'></Tail>
                     </View>
                     <View style={{flexDirection: "row"}}>
                         <Tail title="Bunny Story" 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Component } from 'react';
-import { View, Button, StyleSheet, Pressable } from 'react-native';
+import { StyleSheet, Pressable } from 'react-native';
 import { Audio } from 'expo-av';
 import Feather from 'react-native-vector-icons/Feather'
 
