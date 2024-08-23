@@ -1,6 +1,6 @@
 # Audio App
 
-React native app with that plays audio files.
+React native app that plays audio files.
 
 ## Get started
 
