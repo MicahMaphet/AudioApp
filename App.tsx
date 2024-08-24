@@ -1,21 +1,21 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import AudioList from "./app/screens/AudioList";
 import AudioItem from "./app/screens/AudioItem";
 
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
+      <Drawer.Navigator>
+        <Drawer.Screen
           name="AudioList"
           component={AudioList} />
-        <Stack.Screen
+        <Drawer.Screen
           name="AudioItem"
           component={AudioItem} />
-      </Stack.Navigator>
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
