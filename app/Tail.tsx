@@ -1,7 +1,7 @@
 
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
-import Feather from 'react-native-vector-icons/Feather'
 import { useNavigation } from './screens/AudioList';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Tail(props: TailProps) {
   const navigation = useNavigation();
@@ -11,7 +11,7 @@ export default function Tail(props: TailProps) {
     <Pressable style={styles.container} onPress={() => openTail(navigation)}>
       {props.image 
       ? <Image source={imageSource} style={styles.image} />
-      : <Feather name='book-open' style={styles.image}/>}
+      : <Ionicons name='book-outline' style={styles.image}/>}
       <View style={styles.textContainer}>
         <Text style={styles.title}>{props.title}</Text>
       </View>

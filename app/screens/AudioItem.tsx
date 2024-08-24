@@ -1,11 +1,11 @@
 import { View, StyleSheet } from "react-native";
-import Feather from 'react-native-vector-icons/Feather'
+import { Ionicons } from "@expo/vector-icons";
 import AudioPlayer from "../AudioPlayer";
 
 const AudioItem = () => {
     return (
         <View style={{alignItems: 'center'}}>
-            <Feather style={styles.image} name='book-open'></Feather>
+            <Ionicons style={styles.image} name='book-sharp' />
             <AudioPlayer></AudioPlayer>
         </View>
     );
