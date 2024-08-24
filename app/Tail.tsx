@@ -14,7 +14,6 @@ export default function Tail(props: TailProps) {
       : <Feather name='book-open' style={styles.image}/>}
       <View style={styles.textContainer}>
         <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.description}>{props.description ? props.description : 'No Description'}</Text>
       </View>
     </Pressable>
   );
@@ -27,7 +26,6 @@ const images = {
 
 type TailProps = {
   title: string,
-  description?: string,
   image?: 'book.png' | 'icon.png',
 }
 
@@ -40,17 +38,16 @@ function openTail(navigation: any) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     padding: 5,
     alignItems: 'center',
-    borderWidth: 1,
-    height: 150,
-    width: 300,
+    height: 250,
+    width: 200,
   },
   image: {
-    fontSize:80,
-    width: 100,
-    height: 100,
+    fontSize:200,
+    width: 200,
+    height: 200,
     marginRight: 10,
   },
   textContainer: {
@@ -60,10 +57,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     paddingTop: 5
-  },
-  description: {
-    fontSize: 16,
-    color: '#666',
-    marginTop: 4,
   },
 });

@@ -22,10 +22,7 @@ const AudioList = ({navigation}: AudioListProps) => {
                         <Tail title="Banana" image='icon.png'></Tail>
                     </View>
                     <View style={{flexDirection: "row"}}>
-                        <Tail title="Bunny Story" 
-                            description="This is a story about a bunny that does things. 
-                            He is not a very nice bunny and needs to do a thing a thing a thing. 
-                            "></Tail>
+                        <Tail title="Bunny Story"></Tail>
                     </View>
                 </NavigationContext.Provider>
             </ScrollView>
