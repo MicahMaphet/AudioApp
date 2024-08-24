@@ -1,6 +1,11 @@
 import React, { createContext, useContext } from 'react';
 import { View, ScrollView } from "react-native";
 import Tail from "../Tail";
+import { Storage } from '@/server/storage';
+
+console.log('getting teilas');
+Storage.tails.get();
+
 
 const AudioList = ({navigation}: AudioListProps) => {
     console.log('Navigation:', navigation);
