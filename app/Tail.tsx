@@ -31,7 +31,7 @@ type TailProps = {
 
 function openTail(navigation: any) {
   if (navigation) {
-    navigation.navigate('AudioItem');
+    navigation.navigate('Audio Item');
   }
   console.log('navigation was not defined in tail');
 }
