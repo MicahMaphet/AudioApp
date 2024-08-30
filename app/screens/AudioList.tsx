@@ -3,7 +3,6 @@ import { View, ScrollView } from "react-native";
 import Tail from "../Tail";
 
 const AudioList = ({navigation}: AudioListProps) => {
-    console.log('Navigation:', navigation);
     return (
         <View
         style={{
