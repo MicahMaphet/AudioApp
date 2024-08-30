@@ -40,6 +40,7 @@ const AudioList = ({navigation}: AudioListProps) => {
                 <ActivityIndicator/>
             ) : (
                 <FlatList
+                numColumns={2}
                 data={data}
                 renderItem={({item}) => (
                 <Tail title={item.title}/>
