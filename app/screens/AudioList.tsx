@@ -1,8 +1,29 @@
-import React, { createContext, useContext } from 'react';
-import { View, ScrollView } from "react-native";
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { View, ScrollView, Text, ActivityIndicator } from "react-native";
 import Tail from "../Tail";
 
 const AudioList = ({navigation}: AudioListProps) => {
+    const [isLoading, setLoading] = useState<any>(true);
+    const [data, setData] = useState([]);
+
+    const getData = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/tails')
+            const json = await response.json();
+            setData(json);
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    console.log('Data:');
+    console.log(data);
     return (
         <View
         style={{
@@ -23,6 +44,11 @@ const AudioList = ({navigation}: AudioListProps) => {
                     <View style={{flexDirection: "row"}}>
                         <Tail title="Bunny Story"></Tail>
                     </View>
+                    {isLoading ? (
+                        <ActivityIndicator/>
+                    ) : (
+                        <Text>Data: {data.toString()}</Text>
+                    )}
                 </NavigationContext.Provider>
             </ScrollView>
         </View>
