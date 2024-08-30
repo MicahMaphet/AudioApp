@@ -1,10 +1,16 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { View, ScrollView, Text, ActivityIndicator } from "react-native";
 import Tail from "../Tail";
+import { FlatList } from 'react-native-gesture-handler';
+
+type Tail = {
+    title: string,
+    description: string,
+}
 
 const AudioList = ({navigation}: AudioListProps) => {
     const [isLoading, setLoading] = useState<any>(true);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<Tail[]>([]);
 
     const getData = async () => {
         try {
@@ -22,8 +28,6 @@ const AudioList = ({navigation}: AudioListProps) => {
         getData();
     }, []);
 
-    console.log('Data:');
-    console.log(data);
     return (
         <View
         style={{
@@ -31,26 +35,18 @@ const AudioList = ({navigation}: AudioListProps) => {
         justifyContent: "center",
         }}
         >
-            <ScrollView>
-                <NavigationContext.Provider value={navigation}>
-                    <View style={{flexDirection: "row"}}>
-                        <Tail title="Story A" image='book.png'></Tail>
-                        <Tail title="Story B"></Tail>
-                    </View>
-                    <View style={{flexDirection: "row"}}>
-                        <Tail title="Story C"></Tail>
-                        <Tail title="Banana" image='icon.png'></Tail>
-                    </View>
-                    <View style={{flexDirection: "row"}}>
-                        <Tail title="Bunny Story"></Tail>
-                    </View>
-                    {isLoading ? (
-                        <ActivityIndicator/>
-                    ) : (
-                        <Text>Data: {data.toString()}</Text>
-                    )}
-                </NavigationContext.Provider>
-            </ScrollView>
+        <NavigationContext.Provider value={navigation}>
+            {isLoading ? (
+                <ActivityIndicator/>
+            ) : (
+                <FlatList
+                data={data}
+                renderItem={({item}) => (
+                <Tail title={item.title}/>
+                )}
+                />
+            )}
+        </NavigationContext.Provider>
         </View>
     );
 }
