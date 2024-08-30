@@ -1,16 +1,11 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { View, ScrollView, Text, ActivityIndicator } from "react-native";
-import Tail from "../Tail";
+import Tail, { TailProps } from "../Tail";
 import { FlatList } from 'react-native-gesture-handler';
-
-type Tail = {
-    title: string,
-    description: string,
-}
 
 const AudioList = ({navigation}: AudioListProps) => {
     const [isLoading, setLoading] = useState<any>(true);
-    const [data, setData] = useState<Tail[]>([]);
+    const [data, setData] = useState<TailProps[]>([]);
 
     const getData = async () => {
         try {
@@ -43,7 +38,7 @@ const AudioList = ({navigation}: AudioListProps) => {
                 numColumns={2}
                 data={data}
                 renderItem={({item}) => (
-                <Tail title={item.title}/>
+                <Tail title={item.title} image={item.image}/>
                 )}
                 />
             )}

@@ -24,7 +24,7 @@ const images = {
   'icon.png': require('../assets/images/icon.png'),
 };
 
-type TailProps = {
+export type TailProps = {
   title: string,
   image?: 'book.png' | 'icon.png',
 }
