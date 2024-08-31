@@ -26,7 +26,7 @@ export type TailProps = {
 
 function openTail(navigation: any, {title, image, audio}: TailProps) {
   if (navigation) {
-    navigation.navigate('Audio Item', {
+    navigation.navigate('AudioItem', {
       title: title,
       image: image,
       audio: audio
