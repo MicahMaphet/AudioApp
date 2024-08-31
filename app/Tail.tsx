@@ -6,11 +6,10 @@ import { Ionicons } from '@expo/vector-icons';
 export default function Tail(props: TailProps) {
   const navigation = useNavigation();
 
-  const imageSource = props.image ? images[props.image] : null;
   return (
     <Pressable style={styles.container} onPress={() => openTail(navigation)}>
       {props.image 
-      ? <Image source={imageSource} style={styles.image} />
+      ? <Image source={{ uri: 'http://localhost:3000/images/' + props.image }} style={styles.image} />
       : <Ionicons name='book-outline' style={styles.image}/>}
       <View style={styles.textContainer}>
         <Text style={styles.title}>{props.title}</Text>
@@ -26,7 +25,7 @@ const images = {
 
 export type TailProps = {
   title: string,
-  image?: 'book.png' | 'icon.png',
+  image?: string,
 }
 
 function openTail(navigation: any) {
