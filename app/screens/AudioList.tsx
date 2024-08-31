@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { View, ScrollView, Text, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator } from "react-native";
 import Tail, { TailProps } from "../Tail";
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -38,7 +38,7 @@ const AudioList = ({navigation}: AudioListProps) => {
                 numColumns={2}
                 data={data}
                 renderItem={({item}) => (
-                <Tail title={item.title} image={item.image}/>
+                <Tail title={item.title} image={item.image} audio={item.audio}/>
                 )}
                 />
             )}

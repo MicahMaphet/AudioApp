@@ -7,7 +7,7 @@ export default function Tail(props: TailProps) {
   const navigation = useNavigation();
 
   return (
-    <Pressable style={styles.container} onPress={() => openTail(navigation)}>
+    <Pressable style={styles.container} onPress={() => openTail(navigation, props)}>
       {props.image 
       ? <Image source={{ uri: 'http://localhost:3000/images/' + props.image }} style={styles.image} />
       : <Ionicons name='book-outline' style={styles.image}/>}
@@ -18,19 +18,19 @@ export default function Tail(props: TailProps) {
   );
 };
 
-const images = {
-  'book.png': require('../assets/images/book.png'),
-  'icon.png': require('../assets/images/icon.png'),
-};
-
 export type TailProps = {
   title: string,
   image?: string,
+  audio?: string
 }
 
-function openTail(navigation: any) {
+function openTail(navigation: any, {title, image, audio}: TailProps) {
   if (navigation) {
-    navigation.navigate('Audio Item');
+    navigation.navigate('Audio Item', {
+      title: title,
+      image: image,
+      audio: audio
+    });
   }
   console.log('navigation was not defined in tail');
 }
