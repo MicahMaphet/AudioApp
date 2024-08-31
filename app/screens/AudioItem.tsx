@@ -9,7 +9,7 @@ const AudioItem = () => {
     const { title, image, audio } = route.params;
     return (
         <View style={{alignItems: 'center'}}>
-            {image ? <Image source={{uri: 'http://localhost:3000/images/Wizard.png'}} style={styles.image} />
+            {image ? <Image source={{uri: 'http://localhost:3000/images/' + image}} style={styles.image} />
                    : <Ionicons style={styles.image} name='book-sharp' />}
             <Text>{title}</Text>
             {audio ? <AudioPlayer audio={audio}></AudioPlayer>
