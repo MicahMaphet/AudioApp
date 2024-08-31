@@ -5,7 +5,7 @@ import { useRoute, RouteProp } from "@react-navigation/native";
 
 const AudioItem = () => {
     const route = useRoute<RouteProp<Record<string, { audio: string }>, string>>();
-    const audio = route.params.audio;
+    const { audio } = route.params;
     return (
         <View style={{alignItems: 'center'}}>
             <Ionicons style={styles.image} name='book-sharp' />
