@@ -1,6 +1,6 @@
 
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
-import { useNavigation } from './screens/AudioList';
+import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Tail(props: TailProps) {
