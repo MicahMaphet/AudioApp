@@ -30,19 +30,17 @@ const AudioList = ({navigation}: AudioListProps) => {
         justifyContent: "center",
         }}
         >
-        <NavigationContext.Provider value={navigation}>
-            {isLoading ? (
-                <ActivityIndicator/>
-            ) : (
-                <FlatList
-                numColumns={2}
-                data={data}
-                renderItem={({item}) => (
-                <Tail title={item.title} image={item.image} audio={item.audio}/>
-                )}
-                />
+        {isLoading ? (
+            <ActivityIndicator/>
+        ) : (
+            <FlatList
+            numColumns={2}
+            data={data}
+            renderItem={({item}) => (
+            <Tail title={item.title} image={item.image} audio={item.audio}/>
             )}
-        </NavigationContext.Provider>
+            />
+        )}
         </View>
     );
 }
