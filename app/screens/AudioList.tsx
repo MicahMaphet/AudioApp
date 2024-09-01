@@ -3,7 +3,7 @@ import { View, ActivityIndicator } from "react-native";
 import Tail, { TailProps } from "../Tail";
 import { FlatList } from 'react-native-gesture-handler';
 
-const AudioList = ({navigation}: AudioListProps) => {
+const AudioList = () => {
     const [isLoading, setLoading] = useState<any>(true);
     const [data, setData] = useState<TailProps[]>([]);
 
@@ -44,16 +44,5 @@ const AudioList = ({navigation}: AudioListProps) => {
         </View>
     );
 }
-
-type AudioListProps = {
-    navigation: any,
-}
-
-
-const NavigationContext = createContext(null);
-
-export const useNavigation = () => {
-  return useContext(NavigationContext);
-};
 
 export default AudioList;
