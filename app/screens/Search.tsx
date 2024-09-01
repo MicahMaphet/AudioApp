@@ -1,9 +1,8 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { View, ActivityIndicator } from "react-native";
+import { ActivityIndicator, FlatList, TextInput, View } from "react-native";
 import Tail, { TailProps } from "../Tail";
-import { FlatList } from 'react-native-gesture-handler';
+import { useEffect, useState } from "react";
 
-const AudioList = () => {
+export default function Search() {
     const [isLoading, setLoading] = useState<any>(true);
     const [data, setData] = useState<TailProps[]>([]);
 
@@ -22,7 +21,6 @@ const AudioList = () => {
     useEffect(() => {
         getData();
     }, []);
-
     return (
         <View
         style={{
@@ -30,6 +28,7 @@ const AudioList = () => {
         justifyContent: "center",
         }}
         >
+        <TextInput placeholder="Search for a tail"></TextInput>
         {isLoading ? (
             <ActivityIndicator/>
         ) : (
@@ -44,5 +43,3 @@ const AudioList = () => {
         </View>
     );
 }
-
-export default AudioList;

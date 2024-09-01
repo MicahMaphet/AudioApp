@@ -1,6 +1,6 @@
 
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
-import { useNavigation } from './screens/AudioList';
+import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Tail(props: TailProps) {
@@ -26,7 +26,7 @@ export type TailProps = {
 
 function openTail(navigation: any, {title, image, audio}: TailProps) {
   if (navigation) {
-    navigation.navigate('Audio Item', {
+    navigation.navigate('AudioItem', {
       title: title,
       image: image,
       audio: audio
