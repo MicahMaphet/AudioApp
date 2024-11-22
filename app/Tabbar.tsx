@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import AudioList from "./screens/AudioList";
 import AudioItem from "./screens/AudioItem";
 import Search from "./screens/Search";
+import AIPrompt from "./screens/AIPrompt";
 
 const HomeStack = createNativeStackNavigator()
 
@@ -20,6 +21,14 @@ function SearchNavigator() {
     return (
         <HomeStack.Navigator>
             <HomeStack.Screen name="Search" component={Search} />
+        </HomeStack.Navigator>
+    );
+}
+
+function AINavigator() {
+    return (
+        <HomeStack.Navigator>
+            <HomeStack.Screen name="AIPrompt" component={AIPrompt} />
         </HomeStack.Navigator>
     );
 }
@@ -43,6 +52,14 @@ export default function Tabbar() {
                 options={{
                     tabBarLabel: "",
                     tabBarIcon: () => <Ionicons name='search' />
+                }}
+            />
+            <Tab.Screen
+                name='AINav'
+                component={AINavigator}
+                options={{
+                    tabBarLabel: "",
+                    tabBarIcon: () => <Ionicons name='chatbox' />
                 }}
             />
         </Tab.Navigator>
