@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { Pressable, Text, View } from "react-native"
 import { TextInput } from "react-native-gesture-handler";
-
+import config from "../util/config";
 
 export default function AIPrompt() {
     const [prompt, setPrompt] = useState('');
@@ -11,8 +11,8 @@ export default function AIPrompt() {
 
     const handleSendMessage = async() => {
         try {
-            setStory(`Fetching http://localhost:3000/api?prompt=${prompt}`);
-            const response = await fetch('http://localhost:3000/api?prompt=' + prompt);
+            setStory(`Fetching ${config.uri}/api?prompt=${prompt}`);
+            const response = await fetch(`${config.uri}/api?prompt=${prompt}`);
             setStory(await response.text());
         } catch (err) {
             console.error(err);
