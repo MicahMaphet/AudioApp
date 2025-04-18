@@ -1,16 +1,17 @@
-import { ActivityIndicator, FlatList, TextInput, View } from "react-native";
+import { ActivityIndicator, FlatList, Text, TextInput, View } from "react-native";
 import Tail, { TailProps } from "../Tail";
 import { useEffect, useState } from "react";
 
 export default function Search() {
     const [isLoading, setLoading] = useState<any>(true);
-    const [data, setData] = useState<TailProps[]>([]);
+    const [tail, setTail] = useState<TailProps>();
 
-    const getData = async () => {
+    const getTail = async (title: string) => {
         try {
-            const response = await fetch('http://localhost:3000/tails')
-            const json = await response.json();
-            setData(json);
+            setLoading(true);
+            const response = await fetch(`http://localhost:3000/tails?title=${title}`)
+            const tail = await response.json();
+            setTail(tail as TailProps);
         } catch (err) {
             console.error(err);
         } finally {
@@ -18,9 +19,6 @@ export default function Search() {
         }
     }
 
-    useEffect(() => {
-        getData();
-    }, []);
     return (
         <View
         style={{
@@ -28,17 +26,15 @@ export default function Search() {
         justifyContent: "center",
         }}
         >
-        <TextInput placeholder="Search for a tail"></TextInput>
+        <TextInput placeholder="Search for a tail" onChangeText={title => getTail(title)}></TextInput>
         {isLoading ? (
             <ActivityIndicator/>
         ) : (
-            <FlatList
-            numColumns={2}
-            data={data}
-            renderItem={({item}) => (
-            <Tail title={item.title} image={item.image} audio={item.audio}/>
-            )}
-            />
+            <View> 
+                <Text>{tail?.title + '\n'}</Text>
+                <Tail title={tail?.title as string || 'no title'} image={tail?.image} audio={tail?.audio} story={tail?.story}/>
+            </View>
+        
         )}
         </View>
     );
