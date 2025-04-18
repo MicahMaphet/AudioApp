@@ -14,7 +14,6 @@ export default function Tail(props: TailProps) {
       <View style={styles.textContainer}>
         <Text style={styles.title}>{props.title}</Text>
       </View>
-      <Text>{props.title + ' ' + props.image + ' ' + props.audio + ' ' + props.story}</Text>
     </Pressable>
   );
 };
