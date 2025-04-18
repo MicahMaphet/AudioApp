@@ -37,7 +37,7 @@ const AudioList = () => {
             numColumns={2}
             data={data}
             renderItem={({item}) => (
-            <Tail title={item.title} image={item.image} audio={item.audio}/>
+            <Tail title={item.title} image={item.image} audio={item.audio} story={item.story}/>
             )}
             />
         )}

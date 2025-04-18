@@ -14,6 +14,7 @@ export default function Tail(props: TailProps) {
       <View style={styles.textContainer}>
         <Text style={styles.title}>{props.title}</Text>
       </View>
+      <Text>{props.title + ' ' + props.image + ' ' + props.audio + ' ' + props.story}</Text>
     </Pressable>
   );
 };
@@ -21,15 +22,17 @@ export default function Tail(props: TailProps) {
 export type TailProps = {
   title: string,
   image?: string,
-  audio?: string
+  audio?: string,
+  story?: string
 }
 
-function openTail(navigation: any, {title, image, audio}: TailProps) {
+function openTail(navigation: any, {title, image, audio, story}: TailProps) {
   if (navigation) {
     navigation.navigate('AudioItem', {
       title: title,
       image: image,
-      audio: audio
+      audio: audio,
+      story: story
     });
   }
   console.log('navigation was not defined in tail');
