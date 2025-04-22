@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, Pressable } from 'react-native';
 import { Audio } from 'expo-av';
 import Feather from 'react-native-vector-icons/Feather'
+import config from './util/config';
 
 const AudioPlayer: React.FC<{ audio: string }> = ({ audio }) => {
   const [sound, setSound] = useState<Audio.Sound | null>(null);
@@ -20,7 +21,7 @@ const AudioPlayer: React.FC<{ audio: string }> = ({ audio }) => {
     }
     try {
       const { sound: newSound } = await Audio.Sound.createAsync({
-        uri: 'http://localhost:3000/audios/' + audio
+        uri: config.uri + '/audios/' + audio
       });
       setSound(newSound);
       setIsPlaying(false);
@@ -32,15 +33,14 @@ const AudioPlayer: React.FC<{ audio: string }> = ({ audio }) => {
   const playSound = async () => {
     if (!sound) {
       const { sound: newSound } = await Audio.Sound.createAsync({
-        uri: 'http://localhost:3000/audios/' + audio
+        uri: config.uri + '/audios/' + audio
       });
       setSound(newSound);
       await newSound.playAsync();
-      setIsPlaying(true);
     } else {
       await sound.playAsync();
-      setIsPlaying(true);
     }
+    setIsPlaying(true);
   };
 
   const pauseSound = async () => {

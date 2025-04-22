@@ -1,7 +1,7 @@
-import config from '../../config.json';
+import configFile from '../../config.json';
 
-const Config = {
-    uri: `http://${config.server.host}:${config.server.port}`
+const config = {
+    uri: `http://${configFile.server.host}:${configFile.server.port}`
 }
 
-export default Config;
+export default config;

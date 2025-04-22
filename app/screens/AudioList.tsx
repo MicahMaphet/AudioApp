@@ -1,7 +1,8 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, ActivityIndicator } from "react-native";
 import Tail, { TailProps } from "../Tail";
 import { FlatList } from 'react-native-gesture-handler';
+import config from '../util/config';
 
 const AudioList = () => {
     const [isLoading, setLoading] = useState<any>(true);
@@ -9,7 +10,7 @@ const AudioList = () => {
 
     const getData = async () => {
         try {
-            const response = await fetch('http://localhost:3000/tails')
+            const response = await fetch(config.uri + '/tails')
             const json = await response.json();
             setData(json);
         } catch (err) {

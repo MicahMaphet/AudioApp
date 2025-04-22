@@ -4,6 +4,7 @@ import AudioPlayer from "../AudioPlayer";
 import { useRoute, RouteProp } from "@react-navigation/native";
 import { TailProps } from "../Tail";
 import { useEffect, useState } from "react";
+import config from "../util/config";
 
 const AudioItem = () => {
     const route = useRoute<RouteProp<Record<string, TailProps>, string>>();
@@ -15,7 +16,7 @@ const AudioItem = () => {
 
     const getStoryText = async () => {
         try {
-            const response = await fetch('http://localhost:3000/stories/' + story);
+            const response = await fetch(config.uri + '/stories/' + story);
             const text = await response.text()
             setStoryText(text);
         } catch (err) {
@@ -31,11 +32,11 @@ const AudioItem = () => {
 
     return (
         <View style={{alignItems: 'center'}}>
-            {image ? <Image source={{uri: 'http://localhost:3000/images/' + image}} style={styles.image} />
+            {image ? <Image source={{uri: config.uri + '/images/' + image}} style={styles.image} />
                    : <Ionicons style={styles.image} name='book-sharp' />}
             <Text style={styles.title}>{title}</Text>
             {audio ? <AudioPlayer audio={audio}></AudioPlayer>
-                   : <Text>{title} has no audio http://localhost:3000/images/{image}</Text>}
+                   : <Text>{title} has no audio http://192.168.1.129:3000/images/{image}</Text>}
             <Text>{story}</Text>
             {isLoading ? (
                 <ActivityIndicator/>
